@@ -1,0 +1,1435 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mónica Yamilet & Luis Enrique — Nuestra Boda</title>
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      background: #f6f3ef;
+      color: #2f2f2f;
+    }
+
+    /* =========================
+       INTRO
+    ========================== */
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1800&auto=format&fit=crop");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      transition: 1.2s ease;
+    }
+
+    .intro.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-content {
+      color: white;
+      animation: fadeUp 1.5s ease;
+      padding: 20px;
+    }
+
+    .intro-content p {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .intro-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 85px;
+      line-height: .95;
+    }
+
+    .intro-content .and {
+      font-size: 40px;
+      margin: 8px 0;
+      opacity: .9;
+    }
+
+    .open-btn {
+      margin-top: 40px;
+      padding: 17px 40px;
+      border: none;
+      border-radius: 60px;
+      background: white;
+      color: #7b5e57;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: .35s ease;
+    }
+
+    .open-btn:hover {
+      transform: translateY(-5px);
+      background: #f3e9e4;
+    }
+
+    /* =========================
+       CONTENIDO
+    ========================== */
+
+    .main-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 1s ease;
+    }
+
+    .main-content.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+
+      background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.48)),
+        url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1800&auto=format&fit=crop");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      color: white;
+      padding: 30px 20px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 85px;
+      line-height: .95;
+    }
+
+    .hero .and {
+      font-size: 38px;
+      margin: 7px 0;
+    }
+
+    .date-badge {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,.5);
+      backdrop-filter: blur(8px);
+    }
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================== */
+
+    .countdown {
+      margin: 25px auto 0;
+      max-width: 600px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(0,0,0,.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .countdown-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-item span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .countdown-item small {
+      display: block;
+      margin-top: 7px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      color: #7b5e57;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    /* =========================
+       HISTORIA
+    ========================== */
+
+    .story {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .story img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    }
+
+    .story-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      color: #5e463f;
+      margin-bottom: 20px;
+    }
+
+    .story-text p {
+      line-height: 1.9;
+      color: #555;
+    }
+
+    /* =========================
+       DETALLES
+    ========================== */
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      transition: .35s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      color: #7b5e57;
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       GALERÍA
+    ========================== */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      display: block;
+      transition: .4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+
+    /* =========================
+       PADRES
+    ========================== */
+
+    .parents {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+    }
+
+    .parents-card {
+      background: white;
+      padding: 35px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .parents-card h3 {
+      color: #7b5e57;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .parents-card p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       PADRINOS
+    ========================== */
+
+    .godparents {
+      display: grid;
+      grid-template-columns: minmax(280px,500px);
+      justify-content: center;
+    }
+
+    .godparent-card {
+      background: white;
+      padding: 35px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .godparent-card .icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .godparent-card h4 {
+      color: #7b5e57;
+      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+    }
+
+    .godparent-card p {
+      color: #777;
+    }
+
+    /* =========================
+       UBICACIONES
+    ========================== */
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 30px;
+    }
+
+    .location-card {
+      background: white;
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .location-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .location-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: #7b5e57;
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .location-card p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .map-btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 50px;
+      background: #7b5e57;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .map-btn:hover {
+      transform: translateY(-3px);
+      background: #5e463f;
+    }
+
+    /* =========================
+       MÚSICA
+    ========================== */
+
+    .music-box {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .music-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .music-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: #7b5e57;
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .music-box p {
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* =========================
+       RSVP
+    ========================== */
+
+    .rsvp {
+      background: #7b5e57;
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      padding: 80px 30px;
+    }
+
+    .rsvp h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .rsvp p {
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      background: white;
+      color: #7b5e57;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .35s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #f2e8e2;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       ANIMACIÓN
+    ========================== */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:768px) {
+
+      .intro-content h1,
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .intro-content p {
+        letter-spacing: 2px;
+        font-size: 11px;
+      }
+
+      .section-title h2 {
+        font-size: 42px;
+      }
+
+      .story img {
+        height: 400px;
+      }
+
+      .rsvp h2 {
+        font-size: 45px;
+      }
+
+      .date-badge {
+        font-size: 13px;
+        padding: 12px 18px;
+      }
+
+      .countdown {
+        margin-top: 20px;
+        padding: 15px 12px;
+      }
+
+      .countdown-title {
+        font-size: 21px;
+      }
+
+      .countdown-item span {
+        font-size: 32px;
+      }
+
+      .countdown-item small {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       INTRO
+  ====================================================== -->
+
+  <div class="intro" id="intro">
+
+    <div class="intro-content">
+
+      <p>Te invitamos a nuestra boda</p>
+
+      <h1>Mónica Yamilet</h1>
+
+      <div class="and">&</div>
+
+      <h1>Luis Enrique</h1>
+
+      <button class="open-btn" onclick="openInvitation()">
+        Abrir Invitación ✨
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <div class="main-content" id="mainContent">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+      <div>
+
+        <p>Nos Casamos</p>
+
+        <h1>Mónica Yamilet</h1>
+
+        <div class="and">&</div>
+
+        <h1>Luis Enrique</h1>
+
+        <div class="date-badge">
+          Sábado · 19 de diciembre de 2026
+        </div>
+
+
+        <!-- =================================================
+             CUENTA REGRESIVA
+        ================================================== -->
+
+        <div class="countdown">
+
+          <div class="countdown-title">
+            Falta muy poco para nuestro gran día
+          </div>
+
+          <div class="countdown-grid">
+
+            <div class="countdown-item">
+              <span id="days">00</span>
+              <small>Días</small>
+            </div>
+
+            <div class="countdown-item">
+              <span id="hours">00</span>
+              <small>Horas</small>
+            </div>
+
+            <div class="countdown-item">
+              <span id="minutes">00</span>
+              <small>Minutos</small>
+            </div>
+
+            <div class="countdown-item">
+              <span id="seconds">00</span>
+              <small>Segundos</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HISTORIA
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Nuestra Historia</h2>
+
+          <p>Un amor para siempre</p>
+
+        </div>
+
+
+        <div class="story">
+
+          <!-- FOTO PRINCIPAL -->
+          <img
+            src="Principal.jpeg"
+            alt="Mónica Yamilet y Luis Enrique">
+
+
+          <div class="story-text">
+
+            <h3>El inicio de una nueva etapa</h3>
+
+            <p>
+              Después de compartir momentos inolvidables,
+              experiencias, sueños y mucho amor,
+              hemos decidido comenzar juntos
+              una nueva etapa de nuestras vidas.
+            </p>
+
+            <br>
+
+            <p>
+              Queremos celebrar este día tan especial
+              rodeados de nuestras familias,
+              amigos y todas aquellas personas
+              que forman parte de nuestra historia.
+            </p>
+
+            <br>
+
+            <p>
+              Será un honor contar con tu presencia
+              en este momento tan importante para nosotros.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DETALLES
+    ====================================================== -->
+
+    <section style="background:white;">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Detalles</h2>
+
+          <p>Información de nuestra celebración</p>
+
+        </div>
+
+
+        <div class="details-grid">
+
+
+          <div class="card">
+
+            <h3>📅 Fecha</h3>
+
+            <p>
+              Sábado<br>
+              19 de diciembre de 2026
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>⛪ Ceremonia religiosa</h3>
+
+            <p>
+              1:45 p. m.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>🥂 Recepción</h3>
+
+            <p>
+              Al finalizar la ceremonia religiosa
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>👔 Vestimenta</h3>
+
+            <p>
+              Formal
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GALERÍA
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Momentos Especiales</h2>
+
+          <p>Nuestros recuerdos</p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+          <!-- FOTO PRINCIPAL -->
+
+          <div class="gallery-item">
+
+            <img
+              src="Recuerdo4.jpeg"
+              alt="Foto principal de los novios">
+
+          </div>
+
+
+          <!-- RECUERDO 1 -->
+
+          <div class="gallery-item">
+
+            <img
+              src="Recuardo1.jpeg"
+              alt="Recuerdo de Mónica y Luis">
+
+          </div>
+
+
+          <!-- RECUERDO 2 -->
+
+          <div class="gallery-item">
+
+            <img
+              src="Recuardo2.jpeg"
+              alt="Recuerdo de Mónica y Luis">
+
+          </div>
+
+
+          <!-- RECUERDO 3 -->
+
+          <div class="gallery-item">
+
+            <img
+              src="Recuerdo3.jpeg"
+              alt="Recuerdo de Mónica y Luis">
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PADRES
+    ====================================================== -->
+
+    <section style="background:white;">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Con la bendición de nuestros padres</h2>
+
+          <p>Con mucho amor</p>
+
+        </div>
+
+
+        <div class="parents">
+
+
+          <!-- PADRES DE LA NOVIA -->
+
+          <div class="parents-card">
+
+            <h3>Padres de la novia</h3>
+
+            <p>
+
+              Santa Monica Escalona Escutia
+
+              <br><br>
+
+              Carlos Manuel Gomez Sarceño
+
+            </p>
+
+          </div>
+
+
+          <!-- PADRES DEL NOVIO -->
+
+          <div class="parents-card">
+
+            <h3>Padres del novio</h3>
+
+            <p>
+
+              Inés Hernández Flores
+
+              <br><br>
+
+              Alfonso Cordero Ramírez
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PADRINOS
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Nuestros Padrinos</h2>
+
+          <p>Personas especiales que nos acompañan</p>
+
+        </div>
+
+
+        <div class="godparents">
+
+          <div class="godparent-card">
+
+            <div class="icon">
+              💍
+            </div>
+
+            <h4>
+
+              María Margarita Villar Sara
+
+              <br>
+
+              &
+
+              <br>
+
+              Juan Escutia Barrón
+
+            </h4>
+
+            <p>
+              Padrinos
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         UBICACIONES
+    ====================================================== -->
+
+    <section style="background:white;">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Ubicaciones</h2>
+
+          <p>Te esperamos</p>
+
+        </div>
+
+
+        <div class="location-grid">
+
+
+          <!-- =================================================
+               MISA
+          ================================================== -->
+
+          <div class="location-card">
+
+            <div class="location-icon">
+              ⛪
+            </div>
+
+            <h3>Ceremonia religiosa</h3>
+
+            <p>
+
+              <strong>
+                Parroquia de la Natividad de María
+              </strong>
+
+              <br>
+
+              Diócesis de Ecatepec, A. R.
+
+              <br><br>
+
+              Sábado 19 de diciembre de 2026
+
+              <br>
+
+              <strong>
+                1:45 p. m.
+              </strong>
+
+            </p>
+
+
+            <a
+              href="https://maps.app.goo.gl/Am8UzApwWTzjQdyd8?g_st=iw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="map-btn">
+
+              Ver ubicación 📍
+
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               RECEPCIÓN
+          ================================================== -->
+
+          <div class="location-card">
+
+            <div class="location-icon">
+              🥂
+            </div>
+
+            <h3>Recepción</h3>
+
+            <p>
+
+              Después de la ceremonia religiosa,
+
+              <br><br>
+
+              nos encantará continuar esta celebración
+              en compañía de nuestros familiares y amigos.
+
+              <br><br>
+
+              <strong>
+                Salón de eventos "La Fuente"
+                <br>
+                (El Pocito)
+              </strong>
+
+            </p>
+
+
+            <a
+              href="https://maps.app.goo.gl/f8LVjaBmKNgXXke37?g_st=aw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="map-btn">
+
+              Ver salón 📍
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MÚSICA
+    ====================================================== -->
+
+    <section style="background:white;">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>Nuestra Canción</h2>
+
+          <p>Una melodía para este momento especial</p>
+
+        </div>
+
+
+        <div class="music-box">
+
+          <div class="music-icon">
+            🎵
+          </div>
+
+          <h3>Con amor</h3>
+
+          <p>
+            Presiona reproducir para escuchar
+            nuestra canción.
+          </p>
+
+
+          <!--
+            COLOCA EL ARCHIVO MP3 EN LA MISMA CARPETA
+            QUE ESTE HTML.
+
+            NOMBRE DEL ARCHIVO:
+
+            musica.mp3
+          -->
+
+          <audio controls>
+
+            <source
+              src="Ed sheeran - Perfect (español) - ibored.mp3"
+              type="audio/mpeg">
+
+            Tu navegador no soporta
+            el reproductor de audio.
+
+          </audio>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONFIRMACIÓN DE ASISTENCIA
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="rsvp">
+
+          <h2>Confirma tu asistencia</h2>
+
+          <p>
+
+            Nos encantaría compartir este momento
+            tan especial contigo.
+
+            <br><br>
+
+            Tu presencia hará aún más especial
+            este día para nosotros.
+
+            <br><br>
+
+            Te agradeceremos confirmar tu asistencia
+            por WhatsApp.
+
+          </p>
+
+
+          <a
+            href="https://wa.me/525591058381?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20M%C3%B3nica%20Yamilet%20y%20Luis%20Enrique."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn">
+
+            Confirmar mi asistencia 💌
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  <!-- APARTADO PARA FOTOS Y DEDICATORIAS -->
+
+    <section style="background:#f6f3ef;">
+      <div class="container">
+        <div class="section-title">
+          <h2>Comparte nuestros recuerdos</h2>
+          <p>Un recuerdo que guardaremos para siempre</p>
+        </div>
+
+        <div class="music-box">
+          <div class="music-icon">📸</div>
+
+          <h3>¡Queremos recordar este día contigo!</h3>
+
+          <p>
+            Comparte las fotografías que tomaste durante nuestra boda
+            y déjanos una bonita dedicatoria para conservar este
+            recuerdo tan especial.
+          </p>
+
+          <a href="fotos.html" class="map-btn" style="margin-top:10px;">
+            Compartir mis recuerdos 💌
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+      Con amor,
+
+      <strong>
+        Mónica Yamilet & Luis Enrique
+      </strong>
+
+      ✨
+
+      <br>
+
+      Sábado 19 de diciembre de 2026
+
+      <br><br>
+
+      ¡Esperamos compartir este día contigo!
+
+    </footer>
+
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPT
+  ====================================================== -->
+
+  <script>
+
+    function openInvitation() {
+
+      const intro =
+        document.getElementById("intro");
+
+      const content =
+        document.getElementById("mainContent");
+
+
+      intro.classList.add("hide");
+
+
+      setTimeout(() => {
+
+        content.classList.add("show");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }, 600);
+
+    }
+
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================== */
+
+    const weddingDate =
+      new Date("December 19, 2026 13:45:00").getTime();
+
+
+    function updateCountdown() {
+
+      const now =
+        new Date().getTime();
+
+      const difference =
+        weddingDate - now;
+
+
+      if (difference <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+      }
+
+
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      const hours =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
+
+
+      const minutes =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+
+      const seconds =
+        Math.floor(
+          (difference %
+            (1000 * 60)) /
+          1000
+        );
+
+
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+  </script>
+
+
+</body>
+</html>
+
+

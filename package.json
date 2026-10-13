@@ -1,0 +1,13 @@
+{
+  "name": "recuerdos-boda-monica-luis",
+  "version": "1.0.0",
+  "description": "Formulario para guardar fotografías y dedicatorias de la boda",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}

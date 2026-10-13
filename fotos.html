@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Recuerdos de nuestra boda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cafe: #7b5e57;
+      --cafe-oscuro: #604940;
+      --cafe-claro: #a58a7d;
+      --beige: #f8f2ec;
+      --beige-oscuro: #e9d9cb;
+      --blanco: #fffdf9;
+      --texto: #49372f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 45px 18px;
+      background:
+        radial-gradient(ellipse at top, #fffdf9 0%, transparent 65%),
+        var(--beige);
+      color: var(--texto);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    main {
+      position: relative;
+      max-width: 690px;
+      margin: 0 auto;
+      padding: 48px 55px 38px;
+      background: var(--blanco);
+      border: 1px solid var(--beige-oscuro);
+      border-radius: 4px;
+      box-shadow: 0 15px 45px rgba(96, 73, 64, 0.08);
+      overflow: hidden;
+    }
+
+    /* Detalles decorativos */
+
+    .detalle-superior {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(
+        to right,
+        #e9d9cb,
+        #7b5e57,
+        #cdb6a4,
+        #e9d9cb
+      );
+    }
+
+    .adorno {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 20px;
+      color: var(--cafe-claro);
+      font-size: 18px;
+    }
+
+    .adorno::before,
+    .adorno::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: var(--beige-oscuro);
+    }
+
+    .encabezado {
+      text-align: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #eee3da;
+    }
+
+    .etiqueta {
+      margin: 0 0 12px;
+      color: var(--cafe-claro);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--cafe);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(38px, 7vw, 52px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .nombres {
+      margin: 15px 0 12px;
+      color: var(--cafe-oscuro);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 25px;
+    }
+
+    .subtitulo {
+      max-width: 420px;
+      margin: 0 auto;
+      color: #796960;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .introduccion {
+      margin: 25px 0 27px;
+      text-align: center;
+      color: var(--cafe);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 23px;
+      font-style: italic;
+    }
+
+    /* Formulario */
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campo {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+      color: var(--cafe-oscuro);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .numero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      border: 1px solid var(--beige-oscuro);
+      border-radius: 50%;
+      color: var(--cafe);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 14px 15px;
+      border: 1px solid #e2d3c7;
+      border-radius: 3px;
+      outline: none;
+      background: #fff;
+      color: var(--texto);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 13px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    input[type="text"] {
+      min-height: 48px;
+    }
+
+    textarea {
+      min-height: 145px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--cafe);
+      box-shadow: 0 0 0 3px rgba(123, 94, 87, 0.08);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #b4a49a;
+    }
+
+    /* Área de fotografías */
+
+    .zona-fotos {
+      padding: 23px 20px;
+      border: 1px dashed #cbb6a5;
+      border-radius: 4px;
+      background: #fcf8f3;
+      text-align: center;
+      transition: background 0.25s;
+    }
+
+    .icono-fotos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 51px;
+      height: 51px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #eee2d7;
+      color: var(--cafe);
+      font-size: 25px;
+    }
+
+    .texto-fotos {
+      margin: 0 0 7px;
+      color: var(--cafe-oscuro);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 23px;
+    }
+
+    .descripcion-fotos {
+      margin: 0 0 17px;
+      color: #89786e;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e2d3c7;
+      border-radius: 3px;
+      background: #fffdf9;
+      color: #796960;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    input[type="file"]::file-selector-button {
+      margin-right: 10px;
+      padding: 9px 12px;
+      border: none;
+      border-radius: 2px;
+      background: var(--cafe);
+      color: white;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .ayuda {
+      margin: 12px 0 0;
+      color: #89786e;
+      font-size: 10px;
+      line-height: 1.9;
+    }
+
+    /* Vista previa */
+
+    .vista-previa {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .vista-previa.visible {
+      display: grid;
+    }
+
+    .foto-previa {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid var(--beige-oscuro);
+      border-radius: 3px;
+      background: #eee2d7;
+    }
+
+    .foto-previa img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .foto-numero {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      padding: 4px 7px;
+      border-radius: 2px;
+      background: rgba(73, 55, 47, 0.8);
+      color: white;
+      font-size: 10px;
+    }
+
+    /* Botón */
+
+    button[type="submit"] {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 10px;
+      padding: 15px 20px;
+      border: 1px solid var(--cafe);
+      border-radius: 3px;
+      background: var(--cafe);
+      color: #fffdf9;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--cafe-oscuro);
+      transform: translateY(-1px);
+    }
+
+    button[type="submit"]:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
+    .privacidad {
+      margin: 12px 0 0;
+      text-align: center;
+      color: #a08e82;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    /* Pie de página */
+
+    footer {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #eee3da;
+      text-align: center;
+      color: #89786e;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--cafe);
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .corazon {
+      display: block;
+      margin-top: 8px;
+      color: #b99b8b;
+      font-size: 15px;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      main {
+        padding: 36px 21px 28px;
+      }
+
+      .encabezado {
+        padding-bottom: 23px;
+      }
+
+      .nombres {
+        font-size: 22px;
+      }
+
+      .subtitulo {
+        font-size: 11px;
+      }
+
+      .introduccion {
+        font-size: 21px;
+      }
+
+      .zona-fotos {
+        padding: 20px 13px;
+      }
+
+      .vista-previa {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="detalle-superior"></div>
+
+    <header class="encabezado">
+      <div class="adorno" aria-hidden="true">✦</div>
+
+      <p class="etiqueta">Un día para recordar</p>
+
+      <h1>Nuestros recuerdos</h1>
+
+      <p class="nombres">
+        Mónica Yamilet <span aria-hidden="true">&amp;</span> Luis Enrique
+      </p>
+
+      <p class="subtitulo">
+        Gracias por formar parte de nuestra historia.
+        Nos hace muy felices compartir este momento tan especial contigo.
+      </p>
+    </header>
+
+    <p class="introduccion">
+      Ayúdanos a guardar estos momentos para siempre...
+    </p>
+
+    
+<form action="https://TU-SERVICIO.onrender.com/guardar"
+      method="POST"
+      enctype="multipart/form-data">
+
+
+      <div class="campo">
+        <label for="nombre">
+          <span class="numero">1</span>
+          ¿Quién nos comparte este recuerdo?
+        </label>
+
+        <input
+          id="nombre"
+          name="nombre"
+          type="text"
+          maxlength="100"
+          autocomplete="name"
+          required
+          placeholder="Escribe tu nombre completo"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">
+          <span class="numero">2</span>
+          Una dedicatoria para los novios
+        </label>
+
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          maxlength="2000"
+          required
+          placeholder="Déjanos unas palabras, un deseo o un recuerdo bonito de este día..."
+        ></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="fotos">
+          <span class="numero">3</span>
+          Comparte tus fotografías
+        </label>
+
+        <div class="zona-fotos">
+          <div class="icono-fotos" aria-hidden="true">♡</div>
+
+          <p class="texto-fotos">
+            Nuestros momentos especiales
+          </p>
+
+          <p class="descripcion-fotos">
+            Selecciona las fotografías que tomaste durante la celebración.
+            Cada imagen nos ayudará a revivir este día.
+          </p>
+
+          <input
+            id="fotos"
+            name="fotos"
+            type="file"
+            accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+            multiple
+            required
+            aria-describedby="ayuda-fotos"
+          >
+
+          <p id="ayuda-fotos" class="ayuda">
+            Máximo 10 fotografías · JPG, PNG o WEBP ·
+            Hasta 10 MB por fotografía.
+          </p>
+
+          <div
+            id="vista-previa"
+            class="vista-previa"
+            aria-live="polite"
+          ></div>
+        </div>
+      </div>
+
+      <button id="guardar" type="submit">
+        Guardar mis recuerdos ♡
+      </button>
+
+      <p class="privacidad">
+        Tus fotografías y palabras son parte de un recuerdo
+        que atesoraremos con mucho cariño.
+      </p>
+    </form>
+
+    <footer>
+      Con todo nuestro cariño,
+      <strong>Mónica y Luis</strong>
+    </footer>
+  </main>
+
+  <script>
+    const formulario = document.querySelector("form");
+    const selectorFotos = document.getElementById("fotos");
+    const vistaPrevia = document.getElementById("vista-previa");
+    const botonGuardar = document.getElementById("guardar");
+
+    const MAX_FOTOS = 10;
+    const MAX_TAMANO = 10 * 1024 * 1024;
+
+    const formatosPermitidos = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    let urlsPrevia = [];
+
+    function limpiarVistaPrevia() {
+      urlsPrevia.forEach(url => URL.revokeObjectURL(url));
+      urlsPrevia = [];
+      vistaPrevia.replaceChildren();
+      vistaPrevia.classList.remove("visible");
+    }
+
+    selectorFotos.addEventListener("change", function () {
+      limpiarVistaPrevia();
+
+      const archivos = Array.from(this.files);
+
+      if (archivos.length > MAX_FOTOS) {
+        alert("Puedes seleccionar un máximo de 10 fotografías.");
+        this.value = "";
+        return;
+      }
+
+      for (const archivo of archivos) {
+        if (!formatosPermitidos.includes(archivo.type)) {
+          alert(
+            "El archivo " + archivo.name +
+            " no tiene un formato permitido. Utiliza JPG, PNG o WEBP."
+          );
+          this.value = "";
+          limpiarVistaPrevia();
+          return;
+        }
+
+        if (archivo.size > MAX_TAMANO) {
+          alert(
+            "La fotografía " + archivo.name +
+            " supera el límite de 10 MB."
+          );
+          this.value = "";
+          limpiarVistaPrevia();
+          return;
+        }
+      }
+
+      if (archivos.length === 0) return;
+
+      archivos.forEach((archivo, indice) => {
+        const url = URL.createObjectURL(archivo);
+        urlsPrevia.push(url);
+
+        const contenedor = document.createElement("div");
+        contenedor.className = "foto-previa";
+
+        const imagen = document.createElement("img");
+        imagen.src = url;
+        imagen.alt = "Fotografía seleccionada " + (indice + 1);
+
+        const numero = document.createElement("span");
+        numero.className = "foto-numero";
+        numero.textContent = (indice + 1) + " / " + archivos.length;
+
+        contenedor.append(imagen, numero);
+        vistaPrevia.appendChild(contenedor);
+      });
+
+      vistaPrevia.classList.add("visible");
+    });
+
+    formulario.addEventListener("submit", function (e) {
+      const archivos = Array.from(selectorFotos.files);
+
+      if (archivos.length === 0) {
+        e.preventDefault();
+        alert("Selecciona al menos una fotografía.");
+        return;
+      }
+
+      if (archivos.length > MAX_FOTOS) {
+        e.preventDefault();
+        alert("Puedes seleccionar un máximo de 10 fotografías.");
+        return;
+      }
+
+      for (const archivo of archivos) {
+        if (!formatosPermitidos.includes(archivo.type)) {
+          e.preventDefault();
+          alert("Solo se permiten fotografías JPG, PNG o WEBP.");
+          return;
+        }
+
+        if (archivo.size > MAX_TAMANO) {
+          e.preventDefault();
+          alert("La fotografía " + archivo.name + " supera los 10 MB.");
+          return;
+        }
+      }
+
+      botonGuardar.disabled = true;
+      botonGuardar.textContent = "Guardando tus recuerdos...";
+    });
+  </script>
+</body>
+</html>
